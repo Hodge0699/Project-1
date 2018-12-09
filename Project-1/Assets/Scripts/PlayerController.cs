@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     //basic movement code
     public float PlayerMovementSpeed;
@@ -24,13 +25,13 @@ public class PlayerController : MonoBehaviour {
         {
             transform.position += transform.TransformDirection(Vector3.left) * Time.deltaTime * PlayerMovementSpeed;
         }
-        else if (Input.GetKey("e") && !Input.GetKey("q"))
+        else if (Input.GetKey("d") && !Input.GetKey("q"))
         {
             transform.position -= transform.TransformDirection(Vector3.left) * Time.deltaTime * PlayerMovementSpeed;
         }
-
+        if(Input.GetKey("Space"))
+        {
+            this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 10.0f);
+        }
     }
-
 }
-
-
